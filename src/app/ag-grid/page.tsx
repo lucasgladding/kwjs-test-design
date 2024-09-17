@@ -1,3 +1,7 @@
+"use client";
+
+import SampleAgGrid from "@/app/ag-grid/grid";
+
 export default function Home() {
-    return <div>Ag Grid</div>;
+    return <SampleAgGrid />;
 }
