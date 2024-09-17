@@ -1,4 +1,4 @@
-interface Contact {
+export interface Contact {
     id: number;
     name: {
         first: string;
