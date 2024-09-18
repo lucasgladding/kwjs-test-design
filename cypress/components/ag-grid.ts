@@ -1,22 +1,26 @@
-import { CyElement } from "./element";
+import { CyBaseElement } from "./element";
 import { CyGrid, CyGridCell, CyGridRow } from "./grid";
 
-class CyAgGridCell implements CyElement {
+class CyAgGridCell extends CyBaseElement implements CyGridCell {
     constructor(
-        private parent: CyElement,
+        private parent: CyBaseElement,
         private i: number,
-    ) {}
+    ) {
+        super();
+    }
 
     chain() {
         return this.parent.chain().find(".ag-cell").eq(this.i);
     }
 }
 
-class CyAgGridRow implements CyGridRow {
+class CyAgGridRow extends CyBaseElement implements CyGridRow {
     constructor(
-        private parent: CyElement,
+        private parent: CyBaseElement,
         private i: number,
-    ) {}
+    ) {
+        super();
+    }
 
     chain() {
         return this.parent.chain().find(".ag-row").eq(this.i);
@@ -27,7 +31,7 @@ class CyAgGridRow implements CyGridRow {
     }
 }
 
-export class CyAgGrid implements CyGrid {
+export class CyAgGrid extends CyBaseElement implements CyGrid {
     chain() {
         return cy.get(".ag-root");
     }

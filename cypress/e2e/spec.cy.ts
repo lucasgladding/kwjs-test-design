@@ -13,16 +13,16 @@ describe("spec", () => {
 
             const grid = page.grid();
 
-            grid.row(0).col(0).chain().should("contain.text", "1");
-            grid.row(0).col(1).chain().should("contain.text", "Lucas");
-            grid.row(0).col(2).chain().should("contain.text", "Gladding");
+            grid.row(0).col(0).contains("1");
+            grid.row(0).col(1).contains("Lucas");
+            grid.row(0).col(2).contains("Gladding");
 
-            grid.row(1).col(0).chain().should("contain.text", "2");
-            grid.row(1).col(1).chain().should("contain.text", "Margaret");
-            grid.row(1).col(2).chain().should("contain.text", "Tavares");
+            grid.row(1).col(0).contains("2");
+            grid.row(1).col(1).contains("Gerrie");
+            grid.row(1).col(2).contains("Swart");
 
-            grid.row(0).col(1).chain().click().type("Jacob").type("{enter}");
-            grid.row(0).col(1).chain().should("contain.text", "Jacob");
+            grid.row(0).col(1).click().type("Jacob").type("{enter}");
+            grid.row(0).col(1).contains("Jacob");
         });
     });
 });

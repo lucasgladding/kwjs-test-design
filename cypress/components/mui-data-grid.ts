@@ -1,11 +1,13 @@
-import { CyElement } from "./element";
+import { CyBaseElement } from "./element";
 import { CyGrid, CyGridCell, CyGridRow } from "./grid";
 
-class CyMuiDataGridCell implements CyGridCell {
+class CyMuiDataGridCell extends CyBaseElement implements CyGridCell {
     constructor(
-        private parent: CyElement,
+        private parent: CyBaseElement,
         private i: number,
-    ) {}
+    ) {
+        super();
+    }
 
     chain() {
         return this.parent
@@ -15,11 +17,13 @@ class CyMuiDataGridCell implements CyGridCell {
     }
 }
 
-class CyMuiDataGridRow implements CyGridRow {
+class CyMuiDataGridRow extends CyBaseElement implements CyGridRow {
     constructor(
-        private parent: CyElement,
+        private parent: CyBaseElement,
         private i: number,
-    ) {}
+    ) {
+        super();
+    }
 
     chain() {
         return this.parent.chain().find(".MuiDataGrid-row").eq(this.i);
@@ -30,7 +34,7 @@ class CyMuiDataGridRow implements CyGridRow {
     }
 }
 
-export class CyMuiDataGrid implements CyGrid {
+export class CyMuiDataGrid extends CyBaseElement implements CyGrid {
     chain() {
         return cy.get(".MuiDataGrid-main");
     }
