@@ -1,4 +1,20 @@
+import { CyAgGrid } from "../components/ag-grid";
+
 describe("spec", () => {
+    it("cy-ag-grid", () => {
+        cy.visit("/ag-grid");
+
+        const grid = new CyAgGrid();
+
+        grid.row(0).col(0).chain().should("contain.text", "1");
+        grid.row(0).col(1).chain().should("contain.text", "Lucas");
+        grid.row(0).col(2).chain().should("contain.text", "Gladding");
+
+        grid.row(1).col(0).chain().should("contain.text", "2");
+        grid.row(1).col(1).chain().should("contain.text", "Margaret");
+        grid.row(1).col(2).chain().should("contain.text", "Tavares");
+    });
+
     it("ag-grid", () => {
         cy.visit("/ag-grid");
 
