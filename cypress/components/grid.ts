@@ -1,11 +1,7 @@
-import Chainable = Cypress.Chainable;
-
-export interface CyGridCol {
-    chain(): Chainable;
-}
+import { CyElement } from "./element";
 
 export interface CyGridRow {
-    col(i: number): CyGridCol;
+    col(i: number): CyElement;
 }
 
 export interface CyGrid {
