@@ -20,6 +20,9 @@ describe("spec", () => {
             grid.row(1).col(0).chain().should("contain.text", "2");
             grid.row(1).col(1).chain().should("contain.text", "Margaret");
             grid.row(1).col(2).chain().should("contain.text", "Tavares");
+
+            grid.row(0).col(1).chain().click().type("Jacob").type("{enter}");
+            grid.row(0).col(1).chain().should("contain.text", "Jacob");
         });
     });
 });
