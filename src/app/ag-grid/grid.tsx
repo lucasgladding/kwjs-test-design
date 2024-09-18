@@ -1,24 +1,23 @@
+import { useState } from "react";
 import { AgGridReact } from "ag-grid-react";
+import { ColDef } from "ag-grid-community";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-quartz.css";
 
-import { ColDef } from "ag-grid-community";
 import { Contact, contacts } from "@/data/contacts";
-import { useState } from "react";
 
 const columns: ColDef<Contact>[] = [
-    { field: "id" },
-    { field: "name.first" },
-    { field: "name.last" },
+    { field: "id", editable: true },
+    { field: "name.first", editable: true },
+    { field: "name.last", editable: true },
 ];
 
 export default function SampleAgGrid() {
-    const [cols] = useState(columns);
     const [rows] = useState(contacts);
 
     return (
-        <div className="ag-theme-quartz" style={{ height: 500 }}>
-            <AgGridReact rowData={rows} columnDefs={cols} />
+        <div className="ag-theme-quartz" style={{ height: 400, width: "100%" }}>
+            <AgGridReact rowData={rows} columnDefs={columns} />
         </div>
     );
 }
