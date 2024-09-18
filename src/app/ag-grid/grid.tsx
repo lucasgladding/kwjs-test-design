@@ -7,9 +7,9 @@ import "ag-grid-community/styles/ag-theme-quartz.css";
 import { Contact, contacts } from "@/data/contacts";
 
 const columns: ColDef<Contact>[] = [
-    { field: "id", editable: true },
-    { field: "name.first", editable: true },
-    { field: "name.last", editable: true },
+    { field: "id", headerName: "ID", editable: true },
+    { field: "name.first", headerName: "First name", editable: true },
+    { field: "name.last", headerName: "Last name", editable: true },
 ];
 
 export default function SampleAgGrid() {
