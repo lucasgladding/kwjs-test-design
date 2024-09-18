@@ -1,7 +1,7 @@
 import { CyElement } from "./element";
-import { CyGrid, CyGridCol, CyGridRow } from "./grid";
+import { CyGrid, CyGridCell, CyGridRow } from "./grid";
 
-class CyMuiDataGridCol implements CyGridCol {
+class CyMuiDataGridCell implements CyGridCell {
     constructor(
         private parent: CyElement,
         private i: number,
@@ -25,8 +25,8 @@ class CyMuiDataGridRow implements CyGridRow {
         return this.parent.chain().find(".MuiDataGrid-row").eq(this.i);
     }
 
-    col(i: number): CyGridCol {
-        return new CyMuiDataGridCol(this, i);
+    col(i: number): CyGridCell {
+        return new CyMuiDataGridCell(this, i);
     }
 }
 
