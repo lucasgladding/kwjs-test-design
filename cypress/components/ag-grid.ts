@@ -1,10 +1,7 @@
-import Chainable = Cypress.Chainable;
+import { CyElement } from "./element";
+import { CyGrid, CyGridCol, CyGridRow } from "./grid";
 
-interface CyElement {
-    chain(): Chainable;
-}
-
-class CyAgCol implements CyElement {
+class CyAgCol implements CyGridCol {
     constructor(
         private parent: CyElement,
         private i: number,
@@ -15,7 +12,7 @@ class CyAgCol implements CyElement {
     }
 }
 
-class CyAgRow implements CyElement {
+class CyAgRow implements CyGridRow {
     constructor(
         private parent: CyElement,
         private i: number,
@@ -25,17 +22,17 @@ class CyAgRow implements CyElement {
         return this.parent.chain().find(".ag-row").eq(this.i);
     }
 
-    col(i: number) {
+    col(i: number): CyGridCol {
         return new CyAgCol(this, i);
     }
 }
 
-export class CyAgGrid implements CyElement {
+export class CyAgGrid implements CyGrid {
     chain() {
         return cy.get(".ag-root");
     }
 
-    row(i: number): CyAgRow {
+    row(i: number): CyGridRow {
         return new CyAgRow(this, i);
     }
 }
