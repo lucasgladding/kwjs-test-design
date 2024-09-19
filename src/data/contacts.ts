@@ -8,5 +8,5 @@ export interface Contact {
 
 export const contacts: Contact[] = [
     { id: 1, name: { first: "Lucas", last: "Gladding" } },
-    { id: 2, name: { first: "Margaret", last: "Tavares" } },
+    { id: 2, name: { first: "Gerrie", last: "Swart" } },
 ];

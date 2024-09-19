@@ -2,7 +2,7 @@ import Chainable = Cypress.Chainable;
 
 export interface CyElement {
     click(): Chainable;
-    contains(text: string): void;
+    contains(text: string): Chainable;
 }
 
 export class CyBaseElement implements CyElement {
@@ -15,6 +15,6 @@ export class CyBaseElement implements CyElement {
     }
 
     contains(text: string) {
-        this.chain().should("contain.text", text);
+        return this.chain().should("contain.text", text);
     }
 }
